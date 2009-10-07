@@ -48,6 +48,15 @@
 }
 
 #pragma mark -
+#pragma mark KVO delegate method
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    [[DataProvider sharedDataProvider] save];
+    [self.tableView reloadData];
+}
+
+#pragma mark -
 #pragma mark Table view methods
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView 
@@ -82,6 +91,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath 
 {
     NSMutableDictionary *task = [_tasks objectAtIndex:indexPath.row];
+    [task addObserver:self forKeyPath:@"name" options:0 context:NULL];
+    [task addObserver:self forKeyPath:@"done" options:0 context:NULL];
     TaskDetailController *anotherViewController = [[TaskDetailController alloc] init];
     anotherViewController.task = task;
     [self.navigationController pushViewController:anotherViewController animated:YES];

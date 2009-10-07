@@ -7,10 +7,14 @@
 //
 
 #import "TaskDetailController.h"
+#import "DataProvider.h"
 
 @implementation TaskDetailController
 
 @synthesize task = _task;
+
+#pragma mark -
+#pragma mark Init and dealloc
 
 - (id)init
 {
@@ -24,6 +28,17 @@
 {
     [super dealloc];
 }
+
+#pragma mark -
+#pragma mark IBAction methods
+
+- (IBAction)changeDoneStatus:(id)sender
+{
+    [_task setObject:[NSNumber numberWithBool:_taskDoneField.on] forKey:@"done"];
+}
+
+#pragma mark -
+#pragma mark UIViewController methods
 
 - (void)viewDidLoad 
 {
@@ -42,6 +57,16 @@
 - (void)didReceiveMemoryWarning 
 {
     [super didReceiveMemoryWarning];
+}
+
+#pragma mark -
+#pragma mark UITextFieldDelegate methods
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [_taskNameField resignFirstResponder];
+    [_task setObject:_taskNameField.text forKey:@"name"];
+    return YES;
 }
 
 @end

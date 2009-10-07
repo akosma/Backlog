@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface TaskDetailController : UIViewController 
+@interface TaskDetailController : UIViewController <UITextFieldDelegate>
 {
 @private
     NSMutableDictionary *_task;
@@ -19,5 +19,7 @@
 }
 
 @property (nonatomic, retain) NSMutableDictionary *task;
+
+- (IBAction)changeDoneStatus:(id)sender;
 
 @end
