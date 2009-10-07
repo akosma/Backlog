@@ -7,8 +7,10 @@
 //
 
 #import "DataProvider.h"
-
+#import "SynthesizeSingleton.h"
 
 @implementation DataProvider
+
+SYNTHESIZE_SINGLETON_FOR_CLASS(DataProvider)
 
 @end
