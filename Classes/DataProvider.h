@@ -9,10 +9,17 @@
 #import <UIKit/UIKit.h>
 
 
-@interface DataProvider : NSObject {
-
+@interface DataProvider : NSObject 
+{
+@private
+    NSMutableArray *_tasks;
 }
 
 + (DataProvider *)sharedDataProvider;
+
+- (id)init;
+- (void)addTask:(NSDictionary *)task;
+- (void)removeTask:(NSDictionary *)task;
+- (void)save;
 
 @end
