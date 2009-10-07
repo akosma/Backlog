@@ -12,6 +12,29 @@
 
 #define FILE_NAME @"TasksData"
 
+/* 
+ Arrange the N elements of ARRAY in random order.
+ Only effective if N is much smaller than RAND_MAX;
+ if this may not be the case, use a better random
+ number generator. 
+ This code comes from
+ http://benpfaff.org/writings/clc/shuffle.html
+*/
+static void shuffle(int *array, size_t n)
+{
+    if (n > 1) 
+    {
+        size_t i;
+        for (i = 0; i < n - 1; i++) 
+        {
+            size_t j = i + rand() / (RAND_MAX / (n - i) + 1);
+            int t = array[j];
+            array[j] = array[i];
+            array[i] = t;
+        }
+    }
+}
+
 @interface DataProvider (Private)
 - (NSString *)dataFilePath;
 @end
@@ -76,6 +99,28 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(DataProvider)
     [_tasks writeToFile:path atomically:NO];
     [_tasks sortUsingSelector:@selector(compareByIndexWith:)];
 }
+
+- (void)shuffleData
+{
+    int count = [_tasks count];
+    int indexes[count];
+    for (int i = 0; i < count; ++i)
+    {
+        indexes[i] = i;
+    }
+    shuffle(indexes, count);
+    
+    for (int i = 0; i < count; ++i)
+    {
+        id task = [_tasks objectAtIndex:i];
+        NSNumber *index = [NSNumber numberWithInt:indexes[i]];
+        [task setObject:index forKey:@"index"];
+    }
+    [_tasks sortUsingSelector:@selector(compareByIndexWith:)];
+}
+
+#pragma mark -
+#pragma mark Private methods
 
 - (NSString *)dataFilePath
 {

@@ -48,6 +48,12 @@
     [self.tableView reloadData];
 }
 
+- (IBAction)shuffleTasks:(id)sender
+{
+    [[DataProvider sharedDataProvider] shuffleData];
+    [self.tableView reloadData];
+}
+
 #pragma mark -
 #pragma mark KVO delegate method
 

@@ -13,5 +13,6 @@
 }
 
 - (IBAction)addTask:(id)sender;
+- (IBAction)shuffleTasks:(id)sender;
 
 @end

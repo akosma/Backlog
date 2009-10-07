@@ -9,9 +9,11 @@
 #import <MessageUI/MessageUI.h>
 
 @interface BacklogAppDelegate : NSObject <UIApplicationDelegate, 
-                                          MFMailComposeViewControllerDelegate> 
+                                          MFMailComposeViewControllerDelegate,
+                                          UIAccelerometerDelegate> 
 {
-    
+@private
+	CFTimeInterval _lastTime;
     UIWindow *window;
     UINavigationController *navigationController;
 }

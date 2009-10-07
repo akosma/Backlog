@@ -22,5 +22,6 @@
 - (void)removeTask:(NSDictionary *)task;
 - (NSArray *)tasks;
 - (void)save;
+- (void)shuffleData;
 
 @end
