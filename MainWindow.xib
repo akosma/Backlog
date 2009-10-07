@@ -64,7 +64,7 @@
 					<object class="IBUIViewController" id="619226028">
 						<object class="IBUINavigationItem" key="IBUINavigationItem" id="394667715">
 							<reference key="IBUINavigationBar"/>
-							<object class="IBUIBarButtonItem" key="IBUIRightBarButtonItem" id="543172860">
+							<object class="IBUIBarButtonItem" key="IBUILeftBarButtonItem" id="543172860">
 								<int key="IBUIStyle">1</int>
 								<int key="IBUISystemItemIdentifier">4</int>
 							</object>

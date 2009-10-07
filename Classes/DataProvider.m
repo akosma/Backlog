@@ -8,6 +8,7 @@
 
 #import "DataProvider.h"
 #import "SynthesizeSingleton.h"
+#import "NSDictionary+Sorting.h"
 
 #define FILE_NAME @"TasksData"
 
@@ -53,6 +54,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(DataProvider)
 
 - (NSArray *)tasks
 {
+    [_tasks sortUsingSelector:@selector(compareByIndexWith:)];
     return _tasks;
 }
 
@@ -72,6 +74,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(DataProvider)
 {
     NSString *path = [self dataFilePath];
     [_tasks writeToFile:path atomically:NO];
+    [_tasks sortUsingSelector:@selector(compareByIndexWith:)];
 }
 
 - (NSString *)dataFilePath

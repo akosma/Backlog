@@ -18,6 +18,7 @@
 		3A4DAE2B107D208800E71FEC /* DataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A4DAE2A107D208800E71FEC /* DataProvider.m */; };
 		3A4DAE7B107D296B00E71FEC /* TaskDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A4DAE79107D296B00E71FEC /* TaskDetailController.m */; };
 		3A4DAE7C107D296B00E71FEC /* TaskDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A4DAE7A107D296B00E71FEC /* TaskDetailController.xib */; };
+		3A4DAF29107D32D800E71FEC /* NSDictionary+Sorting.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A4DAF28107D32D800E71FEC /* NSDictionary+Sorting.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,8 @@
 		3A4DAE78107D296B00E71FEC /* TaskDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskDetailController.h; sourceTree = "<group>"; };
 		3A4DAE79107D296B00E71FEC /* TaskDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskDetailController.m; sourceTree = "<group>"; };
 		3A4DAE7A107D296B00E71FEC /* TaskDetailController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = TaskDetailController.xib; path = Classes/TaskDetailController.xib; sourceTree = "<group>"; };
+		3A4DAF27107D32D800E71FEC /* NSDictionary+Sorting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Sorting.h"; sourceTree = "<group>"; };
+		3A4DAF28107D32D800E71FEC /* NSDictionary+Sorting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Sorting.m"; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Backlog-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Backlog-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -68,6 +71,8 @@
 				3A4DAE2A107D208800E71FEC /* DataProvider.m */,
 				3A4DAE78107D296B00E71FEC /* TaskDetailController.h */,
 				3A4DAE79107D296B00E71FEC /* TaskDetailController.m */,
+				3A4DAF27107D32D800E71FEC /* NSDictionary+Sorting.h */,
+				3A4DAF28107D32D800E71FEC /* NSDictionary+Sorting.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -189,6 +194,7 @@
 				28C286E10D94DF7D0034E888 /* RootViewController.m in Sources */,
 				3A4DAE2B107D208800E71FEC /* DataProvider.m in Sources */,
 				3A4DAE7B107D296B00E71FEC /* TaskDetailController.m in Sources */,
+				3A4DAF29107D32D800E71FEC /* NSDictionary+Sorting.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

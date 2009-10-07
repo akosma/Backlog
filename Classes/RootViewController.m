@@ -41,6 +41,7 @@
     NSMutableDictionary *task = [[NSMutableDictionary alloc] init];
     [task setObject:taskName forKey:@"name"];
     [task setObject:[NSNumber numberWithBool:NO] forKey:@"done"];
+    [task setObject:[NSNumber numberWithInt:count] forKey:@"index"];
     [[DataProvider sharedDataProvider] addTask:task];
     [task release];
     
@@ -65,15 +66,11 @@
     return 1;
 }
 
-
-// Customize the number of rows in the table view.
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section 
 {
     return [_tasks count];
 }
 
-
-// Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath 
 {
     static NSString *CellIdentifier = @"Cell";
@@ -111,19 +108,11 @@
     }   
 }
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath 
+{
+    NSMutableDictionary *task = [_tasks objectAtIndex:fromIndexPath.row];
+    [task setObject:[NSNumber numberWithInt:toIndexPath.row] forKey:@"index"];
+    [[DataProvider sharedDataProvider] save];
 }
-*/
-
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 @end
