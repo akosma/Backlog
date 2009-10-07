@@ -8,7 +8,7 @@
 
 #import "BacklogAppDelegate.h"
 #import "RootViewController.h"
-
+#import "DataProvider.h"
 
 @implementation BacklogAppDelegate
 
@@ -36,12 +36,49 @@
 #pragma mark -
 #pragma mark Memory management
 
-- (void)dealloc {
+- (void)dealloc 
+{
 	[navigationController release];
 	[window release];
 	[super dealloc];
 }
 
+#pragma mark -
+#pragma mark IBAction methods
+
+- (IBAction)sendEmail:(id)sender
+{
+    MFMailComposeViewController *composer = [[MFMailComposeViewController alloc] init];
+    composer.mailComposeDelegate = self;
+    
+    NSString *title = @"Backlog tasks";
+    NSMutableString *body = [[NSMutableString alloc] init];
+    [body appendString:@"<h2>Backlog tasks:</h2>"];
+    [body appendString:@"<ul>"];
+    
+    NSArray *tasks = [[DataProvider sharedDataProvider] tasks];
+    for (id task in tasks)
+    {
+        NSString *name = [task objectForKey:@"name"];
+        BOOL done = [[task objectForKey:@"done"] boolValue];
+        NSString *doneString = (done) ? @"YES" : @"NO";
+        [body appendFormat:@"<li>%@; done: %@</li>", name, doneString];
+    }
+    [body appendString:@"</ul>"];
+    
+    [composer setSubject:title];
+    [composer setMessageBody:body isHTML:YES];
+    
+    [self.navigationController presentModalViewController:composer animated:YES];    
+}
+
+#pragma mark -
+#pragma mark MFMailComposeViewControllerDelegate methods
+
+- (void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error
+{
+    [controller dismissModalViewControllerAnimated:YES];
+}
 
 @end
 

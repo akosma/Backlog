@@ -19,6 +19,7 @@
 		3A4DAE7B107D296B00E71FEC /* TaskDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A4DAE79107D296B00E71FEC /* TaskDetailController.m */; };
 		3A4DAE7C107D296B00E71FEC /* TaskDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A4DAE7A107D296B00E71FEC /* TaskDetailController.xib */; };
 		3A4DAF29107D32D800E71FEC /* NSDictionary+Sorting.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A4DAF28107D32D800E71FEC /* NSDictionary+Sorting.m */; };
+		3A4DAFA0107D375900E71FEC /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A4DAF9F107D375900E71FEC /* MessageUI.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		3A4DAE7A107D296B00E71FEC /* TaskDetailController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = TaskDetailController.xib; path = Classes/TaskDetailController.xib; sourceTree = "<group>"; };
 		3A4DAF27107D32D800E71FEC /* NSDictionary+Sorting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Sorting.h"; sourceTree = "<group>"; };
 		3A4DAF28107D32D800E71FEC /* NSDictionary+Sorting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Sorting.m"; sourceTree = "<group>"; };
+		3A4DAF9F107D375900E71FEC /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		8D1107310486CEB800E47090 /* Backlog-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Backlog-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -53,6 +55,7 @@
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */,
+				3A4DAFA0107D375900E71FEC /* MessageUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,6 +96,7 @@
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
+				3A4DAF9F107D375900E71FEC /* MessageUI.framework */,
 			);
 			name = CustomTemplate;
 			sourceTree = "<group>";

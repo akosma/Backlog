@@ -6,7 +6,11 @@
 //  Copyright __MyCompanyName__ 2009. All rights reserved.
 //
 
-@interface BacklogAppDelegate : NSObject <UIApplicationDelegate> {
+#import <MessageUI/MessageUI.h>
+
+@interface BacklogAppDelegate : NSObject <UIApplicationDelegate, 
+                                          MFMailComposeViewControllerDelegate> 
+{
     
     UIWindow *window;
     UINavigationController *navigationController;
@@ -14,6 +18,8 @@
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 @property (nonatomic, retain) IBOutlet UINavigationController *navigationController;
+
+- (IBAction)sendEmail:(id)sender;
 
 @end
 

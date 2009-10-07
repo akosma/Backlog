@@ -53,7 +53,6 @@
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
-    [object removeObserver:self];
     [[DataProvider sharedDataProvider] save];
     [self.tableView reloadData];
 }
