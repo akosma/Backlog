@@ -8,7 +8,7 @@
 
 #import "RootViewController.h"
 #import "DataProvider.h"
-
+#import "TaskDetailController.h"
 
 @implementation RootViewController
 
@@ -21,6 +21,7 @@
 {
     [super viewDidLoad];
     _tasks = [[DataProvider sharedDataProvider] tasks];
+    self.title = @"Backlog";
 
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
@@ -30,17 +31,16 @@
     [super didReceiveMemoryWarning];
 }
 
-- (void)viewDidUnload 
-{
-}
-
 #pragma mark -
 #pragma mark IBAction methods
 
 - (IBAction)addTask:(id)sender
 {
+    NSInteger count = [_tasks count] + 1;
+    NSString *taskName = [NSString stringWithFormat:@"Task %d", count];
     NSMutableDictionary *task = [[NSMutableDictionary alloc] init];
-    [task setObject:@"New Task" forKey:@"name"];
+    [task setObject:taskName forKey:@"name"];
+    [task setObject:[NSNumber numberWithBool:NO] forKey:@"done"];
     [[DataProvider sharedDataProvider] addTask:task];
     [task release];
     
@@ -72,25 +72,21 @@
     if (cell == nil) 
     {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     cell.textLabel.text = [[_tasks objectAtIndex:indexPath.row] objectForKey:@"name"];
 
     return cell;
 }
 
-
-
-/*
-// Override to support row selection in the table view.
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-
-    // Navigation logic may go here -- for example, create and push another view controller.
-	// AnotherViewController *anotherViewController = [[AnotherViewController alloc] initWithNibName:@"AnotherView" bundle:nil];
-	// [self.navigationController pushViewController:anotherViewController animated:YES];
-	// [anotherViewController release];
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath 
+{
+    NSMutableDictionary *task = [_tasks objectAtIndex:indexPath.row];
+    TaskDetailController *anotherViewController = [[TaskDetailController alloc] init];
+    anotherViewController.task = task;
+    [self.navigationController pushViewController:anotherViewController animated:YES];
+    [anotherViewController release];
 }
-*/
-
 
 /*
 // Override to support conditional editing of the table view.
