@@ -95,9 +95,9 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(DataProvider)
 
 - (void)save
 {
+    [_tasks sortUsingSelector:@selector(compareByIndexWith:)];
     NSString *path = [self dataFilePath];
     [_tasks writeToFile:path atomically:NO];
-    [_tasks sortUsingSelector:@selector(compareByIndexWith:)];
 }
 
 - (void)shuffleData
@@ -116,7 +116,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(DataProvider)
         NSNumber *index = [NSNumber numberWithInt:indexes[i]];
         [task setObject:index forKey:@"index"];
     }
-    [_tasks sortUsingSelector:@selector(compareByIndexWith:)];
+    [self save];
 }
 
 #pragma mark -
