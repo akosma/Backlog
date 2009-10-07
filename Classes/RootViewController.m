@@ -86,7 +86,17 @@
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
-    cell.textLabel.text = [[_tasks objectAtIndex:indexPath.row] objectForKey:@"name"];
+    id task = [_tasks objectAtIndex:indexPath.row];
+    cell.textLabel.text = [task objectForKey:@"name"];
+    BOOL done = [[task objectForKey:@"done"] boolValue];
+    if (done)
+    {
+        cell.textLabel.textColor = [UIColor blueColor];
+    }
+    else 
+    {
+        cell.textLabel.textColor = [UIColor redColor];
+    }
 
     return cell;
 }
