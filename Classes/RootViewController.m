@@ -7,85 +7,73 @@
 //
 
 #import "RootViewController.h"
+#import "DataProvider.h"
 
 
 @implementation RootViewController
 
-/*
-- (void)viewDidLoad {
-    [super viewDidLoad];
+- (void)dealloc 
+{
+    [super dealloc];
+}
 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+- (void)viewDidLoad 
+{
+    [super viewDidLoad];
+    _tasks = [[DataProvider sharedDataProvider] tasks];
+
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
-*/
 
-/*
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-}
-*/
-/*
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-}
-*/
-/*
-- (void)viewWillDisappear:(BOOL)animated {
-	[super viewWillDisappear:animated];
-}
-*/
-/*
-- (void)viewDidDisappear:(BOOL)animated {
-	[super viewDidDisappear:animated];
-}
-*/
-
-/*
- // Override to allow orientations other than the default portrait orientation.
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-	// Return YES for supported orientations.
-	return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
- */
-
-- (void)didReceiveMemoryWarning {
-	// Releases the view if it doesn't have a superview.
+- (void)didReceiveMemoryWarning 
+{
     [super didReceiveMemoryWarning];
-	
-	// Release any cached data, images, etc that aren't in use.
 }
 
-- (void)viewDidUnload {
-	// Release anything that can be recreated in viewDidLoad or on demand.
-	// e.g. self.myOutlet = nil;
+- (void)viewDidUnload 
+{
 }
 
+#pragma mark -
+#pragma mark IBAction methods
 
+- (IBAction)addTask:(id)sender
+{
+    NSMutableDictionary *task = [[NSMutableDictionary alloc] init];
+    [task setObject:@"New Task" forKey:@"name"];
+    [[DataProvider sharedDataProvider] addTask:task];
+    [task release];
+    
+    [self.tableView reloadData];
+}
+
+#pragma mark -
 #pragma mark Table view methods
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView 
+{
     return 1;
 }
 
 
 // Customize the number of rows in the table view.
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 0;
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section 
+{
+    return [_tasks count];
 }
 
 
 // Customize the appearance of table view cells.
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath 
+{
     static NSString *CellIdentifier = @"Cell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
+    if (cell == nil) 
+    {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
-    
-	// Configure the cell.
+    cell.textLabel.text = [[_tasks objectAtIndex:indexPath.row] objectForKey:@"name"];
 
     return cell;
 }
@@ -143,11 +131,4 @@
 }
 */
 
-
-- (void)dealloc {
-    [super dealloc];
-}
-
-
 @end
-

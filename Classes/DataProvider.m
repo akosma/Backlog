@@ -51,6 +51,11 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(DataProvider)
 #pragma mark -
 #pragma mark Public methods
 
+- (NSArray *)tasks
+{
+    return _tasks;
+}
+
 - (void)addTask:(NSDictionary *)task
 {
     [_tasks addObject:task];

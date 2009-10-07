@@ -20,6 +20,7 @@
 - (id)init;
 - (void)addTask:(NSDictionary *)task;
 - (void)removeTask:(NSDictionary *)task;
+- (NSArray *)tasks;
 - (void)save;
 
 @end
