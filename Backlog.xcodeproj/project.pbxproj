@@ -20,6 +20,8 @@
 		3A4DAF29107D32D800E71FEC /* NSDictionary+Sorting.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A4DAF28107D32D800E71FEC /* NSDictionary+Sorting.m */; };
 		3A4DAFA0107D375900E71FEC /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A4DAF9F107D375900E71FEC /* MessageUI.framework */; };
 		3A4DAFF3107D3A4000E71FEC /* TaskDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A4DAFF2107D3A4000E71FEC /* TaskDetailController.xib */; };
+		3AF5B065107D416A00C055FF /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3AF5B064107D416A00C055FF /* Entitlements.plist */; };
+		3AF5B07E107D42BE00C055FF /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AF5B07D107D42BE00C055FF /* Icon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +46,8 @@
 		3A4DAF28107D32D800E71FEC /* NSDictionary+Sorting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Sorting.m"; sourceTree = "<group>"; };
 		3A4DAF9F107D375900E71FEC /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		3A4DAFF2107D3A4000E71FEC /* TaskDetailController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaskDetailController.xib; sourceTree = "<group>"; };
+		3AF5B064107D416A00C055FF /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
+		3AF5B07D107D42BE00C055FF /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Backlog-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Backlog-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -113,10 +117,12 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				3AF5B07D107D42BE00C055FF /* Icon.png */,
 				3A4DAFF2107D3A4000E71FEC /* TaskDetailController.xib */,
 				28F335F01007B36200424DE2 /* RootViewController.xib */,
 				28AD735F0D9D9599002E5188 /* MainWindow.xib */,
 				8D1107310486CEB800E47090 /* Backlog-Info.plist */,
+				3AF5B064107D416A00C055FF /* Entitlements.plist */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -183,6 +189,8 @@
 				28AD73600D9D9599002E5188 /* MainWindow.xib in Resources */,
 				28F335F11007B36200424DE2 /* RootViewController.xib in Resources */,
 				3A4DAFF3107D3A4000E71FEC /* TaskDetailController.xib in Resources */,
+				3AF5B065107D416A00C055FF /* Entitlements.plist in Resources */,
+				3AF5B07E107D42BE00C055FF /* Icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -231,6 +239,59 @@
 			};
 			name = Release;
 		};
+		3AF5B05F107D414B00C055FF /* Distribution Ad Hoc */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = iphoneos3.1;
+			};
+			name = "Distribution Ad Hoc";
+		};
+		3AF5B060107D414B00C055FF /* Distribution Ad Hoc */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_ENTITLEMENTS = Entitlements.plist;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Adrian Kosmaczewski";
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Backlog_Prefix.pch;
+				INFOPLIST_FILE = "Backlog-Info.plist";
+				PRODUCT_NAME = Backlog;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "6C170D3C-5081-493D-8A11-24313E281EC7";
+			};
+			name = "Distribution Ad Hoc";
+		};
+		3AF5B061107D415100C055FF /* Distribution App Store */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = iphoneos3.1;
+			};
+			name = "Distribution App Store";
+		};
+		3AF5B062107D415100C055FF /* Distribution App Store */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Backlog_Prefix.pch;
+				INFOPLIST_FILE = "Backlog-Info.plist";
+				PRODUCT_NAME = Backlog;
+			};
+			name = "Distribution App Store";
+		};
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -265,6 +326,8 @@
 			buildConfigurations = (
 				1D6058940D05DD3E006BFB54 /* Debug */,
 				1D6058950D05DD3E006BFB54 /* Release */,
+				3AF5B060107D414B00C055FF /* Distribution Ad Hoc */,
+				3AF5B062107D415100C055FF /* Distribution App Store */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -274,6 +337,8 @@
 			buildConfigurations = (
 				C01FCF4F08A954540054247B /* Debug */,
 				C01FCF5008A954540054247B /* Release */,
+				3AF5B05F107D414B00C055FF /* Distribution Ad Hoc */,
+				3AF5B061107D415100C055FF /* Distribution App Store */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
