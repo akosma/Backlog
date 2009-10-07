@@ -54,6 +54,13 @@
     _taskDoneField.on = [[_task objectForKey:@"done"] boolValue];
 }
 
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [_taskNameField resignFirstResponder];
+    [_task setObject:_taskNameField.text forKey:@"name"];
+    [_task setObject:[NSNumber numberWithBool:_taskDoneField.on] forKey:@"done"];
+}
+
 - (void)didReceiveMemoryWarning 
 {
     [super didReceiveMemoryWarning];
