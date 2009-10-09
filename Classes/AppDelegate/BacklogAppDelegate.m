@@ -62,7 +62,7 @@
     [body appendString:@"<h2>Backlog tasks:</h2>"];
     [body appendString:@"<ul>"];
     
-    NSArray *tasks = [[DataProvider sharedDataProvider] tasks];
+    NSArray *tasks = [DataProvider sharedDataProvider].tasks;
     for (id task in tasks)
     {
         NSString *name = [task objectForKey:@"name"];

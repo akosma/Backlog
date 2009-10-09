@@ -44,6 +44,8 @@ static void shuffle(int *array, size_t n)
 
 SYNTHESIZE_SINGLETON_FOR_CLASS(DataProvider)
 
+@dynamic tasks;
+
 #pragma mark -
 #pragma mark Init and dealloc
 
@@ -73,13 +75,16 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(DataProvider)
 }
 
 #pragma mark -
-#pragma mark Public methods
+#pragma mark Dynamic property
 
 - (NSArray *)tasks
 {
     [_tasks sortUsingSelector:@selector(compareByIndexWith:)];
     return _tasks;
 }
+
+#pragma mark -
+#pragma mark Public methods
 
 - (void)addTask:(NSDictionary *)task
 {

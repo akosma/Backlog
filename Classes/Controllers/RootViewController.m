@@ -20,7 +20,7 @@
 - (void)viewDidLoad 
 {
     [super viewDidLoad];
-    _tasks = [[DataProvider sharedDataProvider] tasks];
+    _tasks = [DataProvider sharedDataProvider].tasks;
     self.title = @"Backlog";
 
     self.navigationItem.rightBarButtonItem = self.editButtonItem;

@@ -15,12 +15,13 @@
     NSMutableArray *_tasks;
 }
 
+@property (nonatomic, readonly) NSArray *tasks;
+
 + (DataProvider *)sharedDataProvider;
 
 - (id)init;
 - (void)addTask:(NSDictionary *)task;
 - (void)removeTask:(NSDictionary *)task;
-- (NSArray *)tasks;
 - (void)save;
 - (void)shuffleData;
 
