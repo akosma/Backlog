@@ -15,7 +15,6 @@
 		3A9D9ACC107F328100B58F10 /* BacklogAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A9D9ABF107F328100B58F10 /* BacklogAppDelegate.m */; };
 		3A9D9ACD107F328100B58F10 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A9D9AC2107F328100B58F10 /* RootViewController.m */; };
 		3A9D9ACE107F328100B58F10 /* TaskDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A9D9AC4107F328100B58F10 /* TaskDetailController.m */; };
-		3A9D9AD0107F328100B58F10 /* DataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A9D9ACB107F328100B58F10 /* DataProvider.m */; };
 		3A9D9ADA107F32EE00B58F10 /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A9D9AD2107F32EE00B58F10 /* Entitlements.plist */; };
 		3A9D9ADB107F32EE00B58F10 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9D9AD4107F32EE00B58F10 /* Default.png */; };
 		3A9D9ADC107F32EE00B58F10 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9D9AD5107F32EE00B58F10 /* Icon.png */; };
@@ -23,6 +22,7 @@
 		3A9D9ADE107F32EE00B58F10 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A9D9AD8107F32EE00B58F10 /* RootViewController.xib */; };
 		3A9D9ADF107F32EE00B58F10 /* TaskDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A9D9AD9107F32EE00B58F10 /* TaskDetailController.xib */; };
 		3A9D9B0E107F38CD00B58F10 /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A9D9B0D107F38CD00B58F10 /* Task.m */; };
+		3A9D9BEB107F517700B58F10 /* DataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A9D9BEA107F517700B58F10 /* DataProvider.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,8 +40,6 @@
 		3A9D9AC3107F328100B58F10 /* TaskDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskDetailController.h; sourceTree = "<group>"; };
 		3A9D9AC4107F328100B58F10 /* TaskDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskDetailController.m; sourceTree = "<group>"; };
 		3A9D9AC8107F328100B58F10 /* SynthesizeSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SynthesizeSingleton.h; sourceTree = "<group>"; };
-		3A9D9ACA107F328100B58F10 /* DataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataProvider.h; sourceTree = "<group>"; };
-		3A9D9ACB107F328100B58F10 /* DataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataProvider.m; sourceTree = "<group>"; };
 		3A9D9AD2107F32EE00B58F10 /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		3A9D9AD4107F32EE00B58F10 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		3A9D9AD5107F32EE00B58F10 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
@@ -50,6 +48,8 @@
 		3A9D9AD9107F32EE00B58F10 /* TaskDetailController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaskDetailController.xib; sourceTree = "<group>"; };
 		3A9D9B0C107F38CD00B58F10 /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
 		3A9D9B0D107F38CD00B58F10 /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Task.m; sourceTree = "<group>"; };
+		3A9D9BE9107F517700B58F10 /* DataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataProvider.h; sourceTree = "<group>"; };
+		3A9D9BEA107F517700B58F10 /* DataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataProvider.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Backlog-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Backlog-Info.plist"; path = "../Backlog-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -143,6 +143,8 @@
 			isa = PBXGroup;
 			children = (
 				3A9D9AC8107F328100B58F10 /* SynthesizeSingleton.h */,
+				3A9D9BE9107F517700B58F10 /* DataProvider.h */,
+				3A9D9BEA107F517700B58F10 /* DataProvider.m */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -150,8 +152,6 @@
 		3A9D9AC9107F328100B58F10 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				3A9D9ACA107F328100B58F10 /* DataProvider.h */,
-				3A9D9ACB107F328100B58F10 /* DataProvider.m */,
 				3A9D9B0C107F38CD00B58F10 /* Task.h */,
 				3A9D9B0D107F38CD00B58F10 /* Task.m */,
 			);
@@ -257,8 +257,8 @@
 				3A9D9ACC107F328100B58F10 /* BacklogAppDelegate.m in Sources */,
 				3A9D9ACD107F328100B58F10 /* RootViewController.m in Sources */,
 				3A9D9ACE107F328100B58F10 /* TaskDetailController.m in Sources */,
-				3A9D9AD0107F328100B58F10 /* DataProvider.m in Sources */,
 				3A9D9B0E107F38CD00B58F10 /* Task.m in Sources */,
+				3A9D9BEB107F517700B58F10 /* DataProvider.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
