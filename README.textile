@@ -1,0 +1,11 @@
+h1. Backlog iPhone Application
+
+This application was created as part of the beginner tutorial track of the "iPhone Dev Day 2009 in Zürich":http://iphonedevday.com/. This application features a large number of relatively small commits, which allows developers to see in detail each one of the steps required to bring this application to life.
+
+h2. Download
+
+From Github, go to the "Download" section and get one of the compressed files proposed there.
+
+h2. Usage
+
+Open the project with Xcode, and click the "Build and Run" button. You can see the evolution of the code in the "Commits" section of the Github site, but you can also use the "git log" command, or any Git client like Gitx to see the history of changes, and see the differences between each modification.
