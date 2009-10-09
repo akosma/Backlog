@@ -1,0 +1,8 @@
+Product Backlog iPhone Application
+==================================
+
+- Add, edit or delete tasks of a project
+- Reorder tasks to prioritize, (tap and drag)
+- Shake iPhone to disorder tasks in a project
+- Share projects via e-mail
+- Mark tasks as done

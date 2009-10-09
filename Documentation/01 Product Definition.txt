@@ -1,0 +1,1 @@
+"An iPhone application for software developers and project managers using Agile techniques, allowing them to manage lists of tasks for Scrum-based projects."
