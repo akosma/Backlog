@@ -81,7 +81,9 @@
 #pragma mark -
 #pragma mark MFMailComposeViewControllerDelegate methods
 
-- (void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error
+- (void)mailComposeController:(MFMailComposeViewController*)controller 
+          didFinishWithResult:(MFMailComposeResult)result 
+                        error:(NSError*)error
 {
     [controller dismissModalViewControllerAnimated:YES];
 }

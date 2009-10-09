@@ -57,7 +57,10 @@
 #pragma mark -
 #pragma mark KVO delegate method
 
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+- (void)observeValueForKeyPath:(NSString *)keyPath 
+                      ofObject:(id)object 
+                        change:(NSDictionary *)change 
+                       context:(void *)context
 {
     [[DataProvider sharedDataProvider] save];
     [self.tableView reloadData];
@@ -76,14 +79,16 @@
     return [_tasks count];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath 
+- (UITableViewCell *)tableView:(UITableView *)tableView 
+         cellForRowAtIndexPath:(NSIndexPath *)indexPath 
 {
     static NSString *CellIdentifier = @"Cell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) 
     {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault 
+                                       reuseIdentifier:CellIdentifier] autorelease];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     id task = [_tasks objectAtIndex:indexPath.row];
@@ -112,18 +117,23 @@
     [anotherViewController release];
 }
 
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath 
+-   (void)tableView:(UITableView *)tableView 
+ commitEditingStyle:(UITableViewCellEditingStyle)editingStyle 
+  forRowAtIndexPath:(NSIndexPath *)indexPath 
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) 
     {
         NSMutableDictionary *task = [_tasks objectAtIndex:indexPath.row];
         [[DataProvider sharedDataProvider] removeTask:task];
 
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] 
+                         withRowAnimation:UITableViewRowAnimationFade];
     }   
 }
 
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath 
+-  (void)tableView:(UITableView *)tableView 
+moveRowAtIndexPath:(NSIndexPath *)fromIndexPath 
+       toIndexPath:(NSIndexPath *)toIndexPath 
 {
     NSMutableDictionary *task = [_tasks objectAtIndex:fromIndexPath.row];
     [task setObject:[NSNumber numberWithInt:toIndexPath.row] forKey:@"index"];
