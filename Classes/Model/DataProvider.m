@@ -112,10 +112,9 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(DataProvider)
     NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:data];
     [archiver encodeObject:_tasks forKey:@"tasks"];
     [archiver finishEncoding];
-    BOOL result = [data writeToFile:path atomically:YES];
+    [data writeToFile:path atomically:YES];
     [archiver release];
     [data release];
-    NSLog(@"Save operation result: %d", result);
 }
 
 - (void)shuffleData
@@ -144,7 +143,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(DataProvider)
     NSArray *directories = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *directory = [directories lastObject];
     NSString *path = [NSString stringWithFormat:@"%@/%@", directory, FILE_NAME];
-	return path;
+    return path;
 }
 
 @end

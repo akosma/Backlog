@@ -13,7 +13,7 @@
                                           UIAccelerometerDelegate> 
 {
 @private
-	CFTimeInterval _lastTime;
+    CFTimeInterval _lastTime;
     UIWindow *window;
     UINavigationController *navigationController;
 }

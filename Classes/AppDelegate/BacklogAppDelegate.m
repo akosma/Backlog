@@ -11,10 +11,10 @@
 #import "DataProvider.h"
 #import "Task.h"
 
-#define kAccelerometerFrequency			25 //Hz
-#define kFilteringFactor				0.1
-#define kMinEraseInterval				0.5
-#define kEraseAccelerationThreshold		2.0
+#define kAccelerometerFrequency            25 //Hz
+#define kFilteringFactor                0.1
+#define kMinEraseInterval                0.5
+#define kEraseAccelerationThreshold        2.0
 
 
 @implementation BacklogAppDelegate
@@ -27,17 +27,17 @@
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application 
 {
-	[[UIAccelerometer sharedAccelerometer] setUpdateInterval:(1.0 / kAccelerometerFrequency)];
-	[[UIAccelerometer sharedAccelerometer] setDelegate:self];
+    [[UIAccelerometer sharedAccelerometer] setUpdateInterval:(1.0 / kAccelerometerFrequency)];
+    [[UIAccelerometer sharedAccelerometer] setDelegate:self];
 
-	[window addSubview:[navigationController view]];
+    [window addSubview:[navigationController view]];
     [window makeKeyAndVisible];
 }
 
 
 - (void)applicationWillTerminate:(UIApplication *)application 
 {
-	// Save data if appropriate
+    // Save data if appropriate
 }
 
 
@@ -46,9 +46,9 @@
 
 - (void)dealloc 
 {
-	[navigationController release];
-	[window release];
-	[super dealloc];
+    [navigationController release];
+    [window release];
+    [super dealloc];
 }
 
 #pragma mark -
@@ -103,30 +103,30 @@
 
 - (void)accelerometer:(UIAccelerometer*)accelerometer didAccelerate:(UIAcceleration*)acceleration
 {
-	UIAccelerationValue length, x, y, z;
+    UIAccelerationValue length, x, y, z;
     
-    UIAccelerationValue	myAccelerometer[3];
+    UIAccelerationValue    myAccelerometer[3];
     
-	//Use a basic high-pass filter to remove the influence of the gravity
-	myAccelerometer[0] = acceleration.x * kFilteringFactor + myAccelerometer[0] * (1.0 - kFilteringFactor);
-	myAccelerometer[1] = acceleration.y * kFilteringFactor + myAccelerometer[1] * (1.0 - kFilteringFactor);
-	myAccelerometer[2] = acceleration.z * kFilteringFactor + myAccelerometer[2] * (1.0 - kFilteringFactor);
+    //Use a basic high-pass filter to remove the influence of the gravity
+    myAccelerometer[0] = acceleration.x * kFilteringFactor + myAccelerometer[0] * (1.0 - kFilteringFactor);
+    myAccelerometer[1] = acceleration.y * kFilteringFactor + myAccelerometer[1] * (1.0 - kFilteringFactor);
+    myAccelerometer[2] = acceleration.z * kFilteringFactor + myAccelerometer[2] * (1.0 - kFilteringFactor);
     
-	// Compute values for the three axes of the acceleromater
-	x = acceleration.x - myAccelerometer[0];
-	y = acceleration.y - myAccelerometer[0];
-	z = acceleration.z - myAccelerometer[0];
+    // Compute values for the three axes of the acceleromater
+    x = acceleration.x - myAccelerometer[0];
+    y = acceleration.y - myAccelerometer[0];
+    z = acceleration.z - myAccelerometer[0];
     
-	//Compute the intensity of the current acceleration 
-	length = sqrt(x * x + y * y + z * z);
+    //Compute the intensity of the current acceleration 
+    length = sqrt(x * x + y * y + z * z);
     
     // If above a given threshold, shift the index values in the data
-	if((length >= kEraseAccelerationThreshold) && (CFAbsoluteTimeGetCurrent() > _lastTime + kMinEraseInterval)) 
+    if((length >= kEraseAccelerationThreshold) && (CFAbsoluteTimeGetCurrent() > _lastTime + kMinEraseInterval)) 
     {
-		_lastTime = CFAbsoluteTimeGetCurrent();
+        _lastTime = CFAbsoluteTimeGetCurrent();
         RootViewController *rootController = (RootViewController *)[self.navigationController topViewController];
         [rootController shuffleTasks:self];
-	}
+    }
 }
 
 @end
