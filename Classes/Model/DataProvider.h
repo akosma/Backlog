@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+@class Task;
 
 @interface DataProvider : NSObject 
 {
@@ -20,8 +21,8 @@
 + (DataProvider *)sharedDataProvider;
 
 - (id)init;
-- (void)addTask:(NSDictionary *)task;
-- (void)removeTask:(NSDictionary *)task;
+- (void)addTask:(Task *)task;
+- (void)removeTask:(Task *)task;
 - (void)save;
 - (void)shuffleData;
 

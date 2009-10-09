@@ -8,17 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
+@class Task;
 
 @interface TaskDetailController : UIViewController <UITextFieldDelegate>
 {
 @private
-    NSMutableDictionary *_task;
+    Task *_task;
     
     IBOutlet UITextField *_taskNameField;
     IBOutlet UISwitch *_taskDoneField;
 }
 
-@property (nonatomic, retain) NSMutableDictionary *task;
+@property (nonatomic, retain) Task *task;
 
 - (IBAction)changeDoneStatus:(id)sender;
 

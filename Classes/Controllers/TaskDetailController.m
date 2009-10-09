@@ -8,6 +8,7 @@
 
 #import "TaskDetailController.h"
 #import "DataProvider.h"
+#import "Task.h"
 
 @implementation TaskDetailController
 
@@ -34,7 +35,7 @@
 
 - (IBAction)changeDoneStatus:(id)sender
 {
-    [_task setObject:[NSNumber numberWithBool:_taskDoneField.on] forKey:@"done"];
+    _task.done = _taskDoneField.on;
 }
 
 #pragma mark -
@@ -50,15 +51,15 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    _taskNameField.text = [_task objectForKey:@"name"];
-    _taskDoneField.on = [[_task objectForKey:@"done"] boolValue];
+    _taskNameField.text = _task.name;
+    _taskDoneField.on = _task.done;
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
     [_taskNameField resignFirstResponder];
-    [_task setObject:_taskNameField.text forKey:@"name"];
-    [_task setObject:[NSNumber numberWithBool:_taskDoneField.on] forKey:@"done"];
+    _task.name = _taskNameField.text;
+    _task.done = _taskDoneField.on;
 }
 
 - (void)didReceiveMemoryWarning 
@@ -72,7 +73,7 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [_taskNameField resignFirstResponder];
-    [_task setObject:_taskNameField.text forKey:@"name"];
+    _task.name = _taskNameField.text;
     return YES;
 }
 

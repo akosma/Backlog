@@ -74,8 +74,10 @@
     
     [composer setSubject:title];
     [composer setMessageBody:body isHTML:YES];
+    [body release];
     
-    [self.navigationController presentModalViewController:composer animated:YES];    
+    [self.navigationController presentModalViewController:composer animated:YES];
+    [composer release];
 }
 
 #pragma mark -

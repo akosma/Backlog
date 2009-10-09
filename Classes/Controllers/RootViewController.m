@@ -9,6 +9,7 @@
 #import "RootViewController.h"
 #import "DataProvider.h"
 #import "TaskDetailController.h"
+#import "Task.h"
 
 @implementation RootViewController
 
@@ -38,10 +39,10 @@
 {
     NSInteger count = [_tasks count] + 1;
     NSString *taskName = [NSString stringWithFormat:@"Task %d", count];
-    NSMutableDictionary *task = [[NSMutableDictionary alloc] init];
-    [task setObject:taskName forKey:@"name"];
-    [task setObject:[NSNumber numberWithBool:NO] forKey:@"done"];
-    [task setObject:[NSNumber numberWithInt:count] forKey:@"index"];
+    Task *task = [[Task alloc] init];
+    task.name = taskName;
+    task.done = NO;
+    task.index = count;
     [[DataProvider sharedDataProvider] addTask:task];
     [task release];
     
@@ -91,10 +92,9 @@
                                        reuseIdentifier:CellIdentifier] autorelease];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
-    id task = [_tasks objectAtIndex:indexPath.row];
-    cell.textLabel.text = [task objectForKey:@"name"];
-    BOOL done = [[task objectForKey:@"done"] boolValue];
-    if (done)
+    Task *task = [_tasks objectAtIndex:indexPath.row];
+    cell.textLabel.text = task.name;
+    if (task.done)
     {
         cell.textLabel.textColor = [UIColor blueColor];
     }
@@ -108,7 +108,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath 
 {
-    NSMutableDictionary *task = [_tasks objectAtIndex:indexPath.row];
+    Task *task = [_tasks objectAtIndex:indexPath.row];
     [task addObserver:self forKeyPath:@"name" options:0 context:NULL];
     [task addObserver:self forKeyPath:@"done" options:0 context:NULL];
     TaskDetailController *anotherViewController = [[TaskDetailController alloc] init];
@@ -123,7 +123,7 @@
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) 
     {
-        NSMutableDictionary *task = [_tasks objectAtIndex:indexPath.row];
+        Task *task = [_tasks objectAtIndex:indexPath.row];
         [[DataProvider sharedDataProvider] removeTask:task];
 
         [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] 
@@ -135,8 +135,8 @@
 moveRowAtIndexPath:(NSIndexPath *)fromIndexPath 
        toIndexPath:(NSIndexPath *)toIndexPath 
 {
-    NSMutableDictionary *task = [_tasks objectAtIndex:fromIndexPath.row];
-    [task setObject:[NSNumber numberWithInt:toIndexPath.row] forKey:@"index"];
+    Task *task = [_tasks objectAtIndex:fromIndexPath.row];
+    task.index = toIndexPath.row;
     [[DataProvider sharedDataProvider] save];
 }
 

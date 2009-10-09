@@ -8,7 +8,7 @@
 
 #import "DataProvider.h"
 #import "SynthesizeSingleton.h"
-#import "NSDictionary+Sorting.h"
+#import "Task.h"
 
 #define FILE_NAME @"TasksData"
 
@@ -56,7 +56,12 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(DataProvider)
         NSString *path = [self dataFilePath];
         if ([[NSFileManager defaultManager] fileExistsAtPath:path])
         {
-            _tasks = [[NSMutableArray arrayWithContentsOfFile:path] retain];
+            NSData *data = [[NSData alloc] initWithContentsOfFile:path];
+            NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:data];
+            _tasks = [[unarchiver decodeObjectForKey:@"tasks"] retain];
+            [unarchiver finishDecoding];
+            [unarchiver release];
+            [data release];
         }
         else 
         {
@@ -86,13 +91,13 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(DataProvider)
 #pragma mark -
 #pragma mark Public methods
 
-- (void)addTask:(NSDictionary *)task
+- (void)addTask:(Task *)task
 {
     [_tasks addObject:task];
     [self save];
 }
 
-- (void)removeTask:(NSDictionary *)task
+- (void)removeTask:(Task *)task
 {
     [_tasks removeObject:task];
     [self save];
@@ -102,7 +107,15 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(DataProvider)
 {
     [_tasks sortUsingSelector:@selector(compareByIndexWith:)];
     NSString *path = [self dataFilePath];
-    [_tasks writeToFile:path atomically:NO];
+    
+    NSMutableData *data = [[NSMutableData alloc] init];
+    NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:data];
+    [archiver encodeObject:_tasks forKey:@"tasks"];
+    [archiver finishEncoding];
+    BOOL result = [data writeToFile:path atomically:YES];
+    [archiver release];
+    [data release];
+    NSLog(@"Save operation result: %d", result);
 }
 
 - (void)shuffleData
@@ -117,9 +130,8 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(DataProvider)
     
     for (int i = 0; i < count; ++i)
     {
-        id task = [_tasks objectAtIndex:i];
-        NSNumber *index = [NSNumber numberWithInt:indexes[i]];
-        [task setObject:index forKey:@"index"];
+        Task *task = [_tasks objectAtIndex:i];
+        task.index = indexes[i];
     }
     [self save];
 }

@@ -11,6 +11,5 @@
 
 @interface NSDictionary (Sorting)
 
-- (NSComparisonResult)compareByIndexWith:(NSDictionary *)dict;
 
 @end
