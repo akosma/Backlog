@@ -84,6 +84,16 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(DataProvider)
 #pragma mark -
 #pragma mark Public methods
 
+- (NSInteger)count
+{
+    return [_tasks count];
+}
+
+- (Task *)taskAtIndex:(NSInteger)index
+{
+    return [_tasks objectAtIndex:index];
+}
+
 - (void)addTask
 {
     NSInteger count = [_tasks count] + 1;

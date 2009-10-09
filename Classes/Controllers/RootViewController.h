@@ -6,10 +6,12 @@
 //  Copyright akosma software 2009. All rights reserved.
 //
 
+@class DataProvider;
+
 @interface RootViewController : UITableViewController 
 {
 @private
-    NSArray *_tasks;
+    DataProvider *_dataProvider;
 }
 
 - (IBAction)addTask:(id)sender;

@@ -21,6 +21,8 @@
 
 + (DataProvider *)sharedDataProvider;
 
+- (NSInteger)count;
+- (Task *)taskAtIndex:(NSInteger)index;
 - (void)addTask;
 - (void)removeTask:(Task *)task;
 - (void)swapTaskAtIndex:(NSInteger)first withTaskAtIndex:(NSInteger)second;

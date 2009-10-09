@@ -21,7 +21,7 @@
 - (void)viewDidLoad 
 {
     [super viewDidLoad];
-    _tasks = [DataProvider sharedDataProvider].tasks;
+    _dataProvider = [DataProvider sharedDataProvider];
     self.title = @"Backlog";
 
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
@@ -62,7 +62,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section 
 {
-    return [_tasks count];
+    return [_dataProvider count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView 
@@ -77,7 +77,7 @@
                                        reuseIdentifier:CellIdentifier] autorelease];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
-    Task *task = [_tasks objectAtIndex:indexPath.row];
+    Task *task = [_dataProvider taskAtIndex:indexPath.row];
     cell.textLabel.text = task.name;
     if (task.done)
     {
@@ -93,7 +93,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath 
 {
-    Task *task = [_tasks objectAtIndex:indexPath.row];
+    Task *task = [_dataProvider taskAtIndex:indexPath.row];
     TaskDetailController *anotherViewController = [[TaskDetailController alloc] init];
     anotherViewController.task = task;
     [self.navigationController pushViewController:anotherViewController animated:YES];
@@ -106,7 +106,7 @@
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) 
     {
-        Task *task = [_tasks objectAtIndex:indexPath.row];
+        Task *task = [_dataProvider taskAtIndex:indexPath.row];
         [[DataProvider sharedDataProvider] removeTask:task];
 
         [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] 
