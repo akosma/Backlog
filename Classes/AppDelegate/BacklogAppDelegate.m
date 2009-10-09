@@ -9,6 +9,7 @@
 #import "BacklogAppDelegate.h"
 #import "RootViewController.h"
 #import "DataProvider.h"
+#import "Task.h"
 
 #define kAccelerometerFrequency			25 //Hz
 #define kFilteringFactor				0.1
@@ -64,13 +65,19 @@
     [body appendString:@"<ul>"];
     
     NSArray *tasks = [DataProvider sharedDataProvider].tasks;
-    for (id task in tasks)
+    if ([tasks count] > 0)
     {
-        NSString *name = [task objectForKey:@"name"];
-        BOOL done = [[task objectForKey:@"done"] boolValue];
-        NSString *doneString = (done) ? @"YES" : @"NO";
-        [body appendFormat:@"<li>%@; done: %@</li>", name, doneString];
+        for (Task *task in tasks)
+        {
+            NSString *doneString = (task.done) ? @"YES" : @"NO";
+            [body appendFormat:@"<li>%@; done: %@</li>", task.name, doneString];
+        }
     }
+    else 
+    {
+        [body appendString:@"<li>No tasks available.</li>"];
+    }
+
     [body appendString:@"</ul>"];
     
     [composer setSubject:title];
