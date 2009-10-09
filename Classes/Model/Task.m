@@ -12,7 +12,6 @@
 
 @synthesize name = _name;
 @synthesize done = _done;
-@synthesize index = _index;
 
 #pragma mark -
 #pragma mark Init and dealloc
@@ -23,7 +22,6 @@
     {
         _name = @"";
         _done = NO;
-        _index = -1;
     }
     return self;
 }
@@ -34,7 +32,6 @@
     {
         _name = [[coder decodeObjectForKey:@"name"] retain];
         _done = [coder decodeBoolForKey:@"done"];
-        _index = [coder decodeIntForKey:@"index"];
     }
     return self;
 }
@@ -46,31 +43,12 @@
 }
 
 #pragma mark -
-#pragma mark Public method
-
-- (NSComparisonResult)compareByIndexWith:(Task *)task
-{
-    NSInteger thisIndex = self.index;
-    NSInteger otherIndex = task.index;
-    if (thisIndex > otherIndex)
-    {
-        return NSOrderedAscending;
-    }
-    if (thisIndex < otherIndex)
-    {
-        return NSOrderedDescending;
-    }
-    return NSOrderedSame;
-}
-
-#pragma mark -
 #pragma mark Archiving method
 
 - (void)encodeWithCoder:(NSCoder *)coder 
 {
     [coder encodeObject:_name forKey:@"name"];
     [coder encodeBool:_done forKey:@"done"];
-    [coder encodeInt:_index forKey:@"index"];
 }
 
 @end

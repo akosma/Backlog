@@ -37,6 +37,7 @@ static void shuffle(int *array, size_t n)
 
 @interface DataProvider (Private)
 - (NSString *)dataFilePath;
+- (void)save;
 @end
 
 
@@ -44,7 +45,7 @@ static void shuffle(int *array, size_t n)
 
 SYNTHESIZE_SINGLETON_FOR_CLASS(DataProvider)
 
-@dynamic tasks;
+@synthesize tasks = _tasks;
 
 #pragma mark -
 #pragma mark Init and dealloc
@@ -75,25 +76,27 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(DataProvider)
 
 - (void)dealloc
 {
+    [_dataFilePath release];
     [_tasks release];
     [super dealloc];
 }
 
 #pragma mark -
-#pragma mark Dynamic property
-
-- (NSArray *)tasks
-{
-    [_tasks sortUsingSelector:@selector(compareByIndexWith:)];
-    return _tasks;
-}
-
-#pragma mark -
 #pragma mark Public methods
 
-- (void)addTask:(Task *)task
+- (void)addTask
 {
+    NSInteger count = [_tasks count] + 1;
+    NSString *taskName = [NSString stringWithFormat:@"Task %d", count];
+    Task *task = [[Task alloc] init];
+    task.name = taskName;
+    task.done = NO;
+
+    [task addObserver:self forKeyPath:@"name" options:0 context:NULL];
+    [task addObserver:self forKeyPath:@"done" options:0 context:NULL];
+
     [_tasks addObject:task];
+    [task release];
     [self save];
 }
 
@@ -103,9 +106,42 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(DataProvider)
     [self save];
 }
 
+- (void)swapTaskAtIndex:(NSInteger)first withTaskAtIndex:(NSInteger)second
+{
+    [_tasks exchangeObjectAtIndex:first withObjectAtIndex:second];
+    [self save];
+}
+
+- (void)shuffleTasks
+{
+    // This code comes from
+    // http://stackoverflow.com/questions/56648/whats-the-best-way-to-shuffle-an-nsmutablearray
+    NSUInteger count = [_tasks count];
+    for (NSUInteger i = 0; i < count; ++i) 
+    {
+        int nElements = count - i;
+        int n = (random() % nElements) + i;
+        [_tasks exchangeObjectAtIndex:i withObjectAtIndex:n];
+    }
+    [self save];
+}
+
+#pragma mark -
+#pragma mark KVO delegate method
+
+- (void)observeValueForKeyPath:(NSString *)keyPath 
+                      ofObject:(id)object 
+                        change:(NSDictionary *)change 
+                       context:(void *)context
+{
+    [self save];
+}
+
+#pragma mark -
+#pragma mark Private methods
+
 - (void)save
 {
-    [_tasks sortUsingSelector:@selector(compareByIndexWith:)];
     NSString *path = [self dataFilePath];
     
     NSMutableData *data = [[NSMutableData alloc] init];
@@ -117,33 +153,15 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(DataProvider)
     [data release];
 }
 
-- (void)shuffleData
-{
-    int count = [_tasks count];
-    int indexes[count];
-    for (int i = 0; i < count; ++i)
-    {
-        indexes[i] = i;
-    }
-    shuffle(indexes, count);
-    
-    for (int i = 0; i < count; ++i)
-    {
-        Task *task = [_tasks objectAtIndex:i];
-        task.index = indexes[i];
-    }
-    [self save];
-}
-
-#pragma mark -
-#pragma mark Private methods
-
 - (NSString *)dataFilePath
 {
-    NSArray *directories = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *directory = [directories lastObject];
-    NSString *path = [NSString stringWithFormat:@"%@/%@", directory, FILE_NAME];
-    return path;
+    if (_dataFilePath == nil)
+    {
+        NSArray *directories = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString *directory = [directories lastObject];
+        _dataFilePath = [[NSString alloc] initWithFormat:@"%@/%@", directory, FILE_NAME];
+    }
+    return _dataFilePath;
 }
 
 @end

@@ -13,13 +13,9 @@
 @private
     NSString *_name;
     BOOL _done;
-    NSInteger _index;
 }
 
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic) BOOL done;
-@property (nonatomic) NSInteger index;
-
-- (NSComparisonResult)compareByIndexWith:(Task *)dict;
 
 @end

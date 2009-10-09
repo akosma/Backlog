@@ -14,16 +14,16 @@
 {
 @private
     NSMutableArray *_tasks;
+    NSString *_dataFilePath;
 }
 
 @property (nonatomic, readonly) NSArray *tasks;
 
 + (DataProvider *)sharedDataProvider;
 
-- (id)init;
-- (void)addTask:(Task *)task;
+- (void)addTask;
 - (void)removeTask:(Task *)task;
-- (void)save;
-- (void)shuffleData;
+- (void)swapTaskAtIndex:(NSInteger)first withTaskAtIndex:(NSInteger)second;
+- (void)shuffleTasks;
 
 @end
