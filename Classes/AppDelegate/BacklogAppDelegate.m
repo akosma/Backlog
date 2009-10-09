@@ -11,10 +11,10 @@
 #import "DataProvider.h"
 #import "Task.h"
 
-#define kAccelerometerFrequency            25 //Hz
-#define kFilteringFactor                0.1
-#define kMinEraseInterval                0.5
-#define kEraseAccelerationThreshold        2.0
+#define kAccelerometerFrequency            25   //Hz
+#define kFilteringFactor                    0.1
+#define kMinEraseInterval                   0.5
+#define kEraseAccelerationThreshold         2.0
 
 
 @implementation BacklogAppDelegate

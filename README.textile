@@ -2,6 +2,18 @@ h1. Backlog iPhone Application
 
 This application was created as part of the beginner tutorial track of the "iPhone Dev Day 2009 in Zürich":http://iphonedevday.com/. This application features a large number of relatively small commits, which allows developers to see in detail each one of the steps required to bring this application to life.
 
+h2. Features
+
+* Highlights the use of delegation between objects;
+* UINavigationController managing a master/detail view;
+* Features the "SynthesizeSingleton.h":http://cocoawithlove.com/2008/11/singletons-appdelegates-and-top-level.html header file by Matt Gallagher
+* Shows a simple UITableViewController with basic cells, and basic gestures to edit its contents;
+* Detail view is a simple UIViewController built with Interface Builder;
+* The DataProvider class uses Key-Value-Observer (KVO) to be notified of changes in the managed Task instances;
+* The Task class can be serialized and deserialized using the NSCoding protocol;
+* Shows how to use the UIAccelerator class to shuffle tasks by shaking the device;
+* Uses the MessageUI framework to create an e-mail message from the application.
+
 h2. Download
 
 From Github, go to the "Download":http://github.com/akosma/Backlog/downloads section and get one of the compressed files proposed there.
