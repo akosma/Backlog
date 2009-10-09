@@ -34,7 +34,8 @@
 }
 
 
-- (void)applicationWillTerminate:(UIApplication *)application {
+- (void)applicationWillTerminate:(UIApplication *)application 
+{
 	// Save data if appropriate
 }
 
@@ -122,4 +123,3 @@
 }
 
 @end
-
