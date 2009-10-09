@@ -7,19 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1D3623260D0F684500981E51 /* BacklogAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* BacklogAppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */; };
 		28AD73600D9D9599002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD735F0D9D9599002E5188 /* MainWindow.xib */; };
-		28C286E10D94DF7D0034E888 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C286E00D94DF7D0034E888 /* RootViewController.m */; };
 		28F335F11007B36200424DE2 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28F335F01007B36200424DE2 /* RootViewController.xib */; };
-		3A4DAE2B107D208800E71FEC /* DataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A4DAE2A107D208800E71FEC /* DataProvider.m */; };
-		3A4DAE7B107D296B00E71FEC /* TaskDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A4DAE79107D296B00E71FEC /* TaskDetailController.m */; };
-		3A4DAF29107D32D800E71FEC /* NSDictionary+Sorting.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A4DAF28107D32D800E71FEC /* NSDictionary+Sorting.m */; };
 		3A4DAFA0107D375900E71FEC /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A4DAF9F107D375900E71FEC /* MessageUI.framework */; };
 		3A4DAFF3107D3A4000E71FEC /* TaskDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A4DAFF2107D3A4000E71FEC /* TaskDetailController.xib */; };
+		3A9D9ACC107F328100B58F10 /* BacklogAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A9D9ABF107F328100B58F10 /* BacklogAppDelegate.m */; };
+		3A9D9ACD107F328100B58F10 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A9D9AC2107F328100B58F10 /* RootViewController.m */; };
+		3A9D9ACE107F328100B58F10 /* TaskDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A9D9AC4107F328100B58F10 /* TaskDetailController.m */; };
+		3A9D9ACF107F328100B58F10 /* NSDictionary+Sorting.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A9D9AC7107F328100B58F10 /* NSDictionary+Sorting.m */; };
+		3A9D9AD0107F328100B58F10 /* DataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A9D9ACB107F328100B58F10 /* DataProvider.m */; };
 		3AF5B065107D416A00C055FF /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3AF5B064107D416A00C055FF /* Entitlements.plist */; };
 		3AF5B07E107D42BE00C055FF /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AF5B07D107D42BE00C055FF /* Icon.png */; };
 		3AF5B084107D433600C055FF /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AF5B083107D433600C055FF /* Default.png */; };
@@ -27,26 +27,26 @@
 
 /* Begin PBXFileReference section */
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		1D3623240D0F684500981E51 /* BacklogAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BacklogAppDelegate.h; sourceTree = "<group>"; };
-		1D3623250D0F684500981E51 /* BacklogAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BacklogAppDelegate.m; sourceTree = "<group>"; };
 		1D6058910D05DD3D006BFB54 /* Backlog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Backlog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		28A0AAE50D9B0CCF005BE974 /* Backlog_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Backlog_Prefix.pch; sourceTree = "<group>"; };
 		28AD735F0D9D9599002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
-		28C286DF0D94DF7D0034E888 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
-		28C286E00D94DF7D0034E888 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		28F335F01007B36200424DE2 /* RootViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RootViewController.xib; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		3A4DAE29107D208800E71FEC /* DataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataProvider.h; sourceTree = "<group>"; };
-		3A4DAE2A107D208800E71FEC /* DataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataProvider.m; sourceTree = "<group>"; };
-		3A4DAE2D107D20BF00E71FEC /* SynthesizeSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SynthesizeSingleton.h; sourceTree = "<group>"; };
-		3A4DAE78107D296B00E71FEC /* TaskDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskDetailController.h; sourceTree = "<group>"; };
-		3A4DAE79107D296B00E71FEC /* TaskDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskDetailController.m; sourceTree = "<group>"; };
-		3A4DAF27107D32D800E71FEC /* NSDictionary+Sorting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Sorting.h"; sourceTree = "<group>"; };
-		3A4DAF28107D32D800E71FEC /* NSDictionary+Sorting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Sorting.m"; sourceTree = "<group>"; };
 		3A4DAF9F107D375900E71FEC /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		3A4DAFF2107D3A4000E71FEC /* TaskDetailController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaskDetailController.xib; sourceTree = "<group>"; };
+		3A9D9ABE107F328100B58F10 /* BacklogAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BacklogAppDelegate.h; sourceTree = "<group>"; };
+		3A9D9ABF107F328100B58F10 /* BacklogAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BacklogAppDelegate.m; sourceTree = "<group>"; };
+		3A9D9AC1107F328100B58F10 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		3A9D9AC2107F328100B58F10 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		3A9D9AC3107F328100B58F10 /* TaskDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskDetailController.h; sourceTree = "<group>"; };
+		3A9D9AC4107F328100B58F10 /* TaskDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskDetailController.m; sourceTree = "<group>"; };
+		3A9D9AC6107F328100B58F10 /* NSDictionary+Sorting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Sorting.h"; sourceTree = "<group>"; };
+		3A9D9AC7107F328100B58F10 /* NSDictionary+Sorting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Sorting.m"; sourceTree = "<group>"; };
+		3A9D9AC8107F328100B58F10 /* SynthesizeSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SynthesizeSingleton.h; sourceTree = "<group>"; };
+		3A9D9ACA107F328100B58F10 /* DataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataProvider.h; sourceTree = "<group>"; };
+		3A9D9ACB107F328100B58F10 /* DataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataProvider.m; sourceTree = "<group>"; };
 		3AF5B064107D416A00C055FF /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		3AF5B07D107D42BE00C055FF /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		3AF5B083107D433600C055FF /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
@@ -68,24 +68,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		080E96DDFE201D6D7F000001 /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				3A4DAE2D107D20BF00E71FEC /* SynthesizeSingleton.h */,
-				28C286DF0D94DF7D0034E888 /* RootViewController.h */,
-				28C286E00D94DF7D0034E888 /* RootViewController.m */,
-				1D3623240D0F684500981E51 /* BacklogAppDelegate.h */,
-				1D3623250D0F684500981E51 /* BacklogAppDelegate.m */,
-				3A4DAE29107D208800E71FEC /* DataProvider.h */,
-				3A4DAE2A107D208800E71FEC /* DataProvider.m */,
-				3A4DAE78107D296B00E71FEC /* TaskDetailController.h */,
-				3A4DAE79107D296B00E71FEC /* TaskDetailController.m */,
-				3A4DAF27107D32D800E71FEC /* NSDictionary+Sorting.h */,
-				3A4DAF28107D32D800E71FEC /* NSDictionary+Sorting.m */,
-			);
-			path = Classes;
-			sourceTree = "<group>";
-		};
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -97,7 +79,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
-				080E96DDFE201D6D7F000001 /* Classes */,
+				3A9D9ABC107F328100B58F10 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
@@ -138,6 +120,56 @@
 				2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3A9D9ABC107F328100B58F10 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				3A9D9ABD107F328100B58F10 /* AppDelegate */,
+				3A9D9AC0107F328100B58F10 /* Controllers */,
+				3A9D9AC5107F328100B58F10 /* Helpers */,
+				3A9D9AC9107F328100B58F10 /* Model */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		3A9D9ABD107F328100B58F10 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				3A9D9ABE107F328100B58F10 /* BacklogAppDelegate.h */,
+				3A9D9ABF107F328100B58F10 /* BacklogAppDelegate.m */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		3A9D9AC0107F328100B58F10 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3A9D9AC1107F328100B58F10 /* RootViewController.h */,
+				3A9D9AC2107F328100B58F10 /* RootViewController.m */,
+				3A9D9AC3107F328100B58F10 /* TaskDetailController.h */,
+				3A9D9AC4107F328100B58F10 /* TaskDetailController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		3A9D9AC5107F328100B58F10 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				3A9D9AC6107F328100B58F10 /* NSDictionary+Sorting.h */,
+				3A9D9AC7107F328100B58F10 /* NSDictionary+Sorting.m */,
+				3A9D9AC8107F328100B58F10 /* SynthesizeSingleton.h */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		3A9D9AC9107F328100B58F10 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3A9D9ACA107F328100B58F10 /* DataProvider.h */,
+				3A9D9ACB107F328100B58F10 /* DataProvider.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -206,11 +238,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
-				1D3623260D0F684500981E51 /* BacklogAppDelegate.m in Sources */,
-				28C286E10D94DF7D0034E888 /* RootViewController.m in Sources */,
-				3A4DAE2B107D208800E71FEC /* DataProvider.m in Sources */,
-				3A4DAE7B107D296B00E71FEC /* TaskDetailController.m in Sources */,
-				3A4DAF29107D32D800E71FEC /* NSDictionary+Sorting.m in Sources */,
+				3A9D9ACC107F328100B58F10 /* BacklogAppDelegate.m in Sources */,
+				3A9D9ACD107F328100B58F10 /* RootViewController.m in Sources */,
+				3A9D9ACE107F328100B58F10 /* TaskDetailController.m in Sources */,
+				3A9D9ACF107F328100B58F10 /* NSDictionary+Sorting.m in Sources */,
+				3A9D9AD0107F328100B58F10 /* DataProvider.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
