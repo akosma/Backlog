@@ -91,7 +91,11 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(DataProvider)
 
 - (Task *)taskAtIndex:(NSInteger)index
 {
-    return [_tasks objectAtIndex:index];
+    Task *task = [_tasks objectAtIndex:index];
+    [task addObserver:self forKeyPath:@"name" options:0 context:NULL];
+    [task addObserver:self forKeyPath:@"done" options:0 context:NULL];
+
+    return task;
 }
 
 - (void)addTask
@@ -112,6 +116,8 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(DataProvider)
 
 - (void)removeTask:(Task *)task
 {
+    [task removeObserver:self forKeyPath:@"name"];
+    [task removeObserver:self forKeyPath:@"done"];
     [_tasks removeObject:task];
     [self save];
 }
